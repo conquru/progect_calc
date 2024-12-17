@@ -3,32 +3,15 @@ package application
 import (
 	"encoding/json"
 	"net/http"
-	"os"
 
 	"github.com/conquru/project_calc/pkg/calculator"
 )
 
-type Config struct {
-	Addr string
-}
-
-func ConfigFromEnv() *Config {
-	config := new(Config)
-	config.Addr = os.Getenv("PORT")
-	if config.Addr == "" {
-		config.Addr = "8080"
-	}
-	return config
-}
-
 type Application struct {
-	config *Config
 }
 
 func New() *Application {
-	return &Application{
-		config: ConfigFromEnv(),
-	}
+	return &Application{}
 }
 
 // запрос
@@ -63,6 +46,6 @@ func Calculate(w http.ResponseWriter, r *http.Request) {
 }
 
 func (a *Application) RunServer() error {
-	http.HandleFunc("/", Calculate)
-	return http.ListenAndServe(":"+a.config.Addr, nil)
+	http.HandleFunc("/calculate", Calculate)
+	return http.ListenAndServe(":8080", nil)
 }
