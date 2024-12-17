@@ -5,7 +5,7 @@ import (
 	"net/http"
 	"os"
 
-	"github.com/conquru/progect_calc/pkg/calculator"
+	"github.com/conquru/project_calc/pkg/calculator"
 )
 
 type Config struct {

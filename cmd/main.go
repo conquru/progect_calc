@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/conquru/progect_calc/internal/application"
+	"github.com/conquru/project_calc/internal/application"
 )
 
 func main() {
