@@ -57,15 +57,23 @@ func TestCalc(t *testing.T) {
 		},
 		{
 			name:       "priority",
-			expression: "2+2**2",
+			expression: "2+2*2",
 		},
 		{
 			name:       "priority",
-			expression: "((2+2-*(2",
+			expression: "3+3*6",
 		},
 		{
-			name:       "/",
-			expression: "",
+			name:       "priority",
+			expression: "4/2",
+		},
+		{
+			name:       "priority",
+			expression: "4/2+4",
+		},
+		{
+			name:       "priority",
+			expression: "3*3+4/2",
 		},
 	}
 
