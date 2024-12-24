@@ -46,5 +46,5 @@
 | curl --location 'localhost:8080/api/v1/calculate' \--header 'Content-Type: application/json' \--data '{"expression": "(2+2)*2"}'  | {"result": 8,"error": "invalid"}  |
 | curl --location 'localhost:8080/api/v1/calculate' \--header 'Content-Type: application/json' \--data '{"expression": "2+2*2"}'  | {"result": 6,"error": "invalid"}  |
 | curl --location 'localhost:8080/api/v1/calculate' \--header 'Content-Type: application/json' \--data '{"expression": "3*3+4/2"}'  | {"result": 11,"error": "invalid"}  |
-| curl --location 'localhost:8080/api/v1/calculate' \--header 'Content-Type: application/json' \--data '{"expression": "error"}'  | {"error": "Expression is notvalid"}  |
+| curl --location 'localhost:8080/api/v1/calculate' \--header 'Content-Type: application/json' \--data '{"expression": "error"}'  | {"result": 0,"error": "Expression is otvalid"}|
 
