@@ -31,13 +31,19 @@ func Calculate(w http.ResponseWriter, r *http.Request) {
 	err := decoder.Decode(&request)
 
 	if err != nil {
-		http.Error(w, `{"error": "Internal server error"}`, 500)
+		response := Response{Result: 0, Error: "Expression is notvalid"}
+		http.StatusText(500)
+		w.Header().Set("Content-Type", "application/json")
+		json.NewEncoder(w).Encode(response)
 		return
 	}
 
 	result, err := calculator.Calc(request.Expression)
 	if err != nil {
-		http.Error(w, `{"error": "Expression is not valid"}`, 422)
+		response := Response{Result: 0, Error: "Expression is notvalid"}
+		http.StatusText(422)
+		w.Header().Set("Content-Type", "application/json")
+		json.NewEncoder(w).Encode(response)
 		return
 	}
 
